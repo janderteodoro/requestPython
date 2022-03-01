@@ -7,6 +7,6 @@ def dynamicMenu(itens, text):
 
     for i in itens:
         print(f'[{c}] - {i}')
-        c =+ 1
+        c += 1
     
     print()
