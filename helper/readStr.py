@@ -1,7 +1,7 @@
 def readStr(txt, size):
     while True:
         try:
-            word = str(input(txt))
+            word = str(input(txt).strip())
         except(TypeError, ValueError):
             print('Insira números por favor')
             continue
