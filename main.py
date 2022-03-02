@@ -1,14 +1,14 @@
-from helper.menu import dynamicMenu
-from helper.readInt import readInt
-from helper.makePayload import makePayload
+from helper import Helper, Payload
 from service.sendEmail import sendMail
+import sys
 
-url = 'http://localhost:3333'
 
-dynamicMenu(['Enviar email', 'Sair'], 'MENU PRINCIPAL')
-
-opc = (readInt('O que deseja fazer: ', 2))
-
-if opc == 1:
-    payload = makePayload()
-    sendMail(f'{url}/sendMail', payload)
+if __name__ == '__main__':
+    url = 'http://localhost:3333'
+    Helper.dynamicMenu(['Enviar email', 'Sair'], 'MENU PRINCIPAL')
+    opc = (Helper.readInt('O que deseja fazer: ', 2))
+    if opc == 1:
+        payload = Payload.makePayload()
+        sendMail(f'{url}/sendMail', payload)
+    else:
+        sys.exit()
