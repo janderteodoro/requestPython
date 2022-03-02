@@ -4,11 +4,14 @@ import sys
 
 
 if __name__ == '__main__':
-    url = 'http://localhost:3333'
-    Helper.dynamicMenu(['Enviar email', 'Sair'], 'MENU PRINCIPAL')
-    opc = (Helper.readInt('O que deseja fazer: ', 2))
-    if opc == 1:
-        payload = Payload.makePayload()
-        sendMail(f'{url}/sendMail', payload)
-    else:
-        sys.exit()
+    try:
+        url = 'http://localhost:3333'
+        Helper.dynamicMenu(['Enviar email', 'Sair'], 'MENU PRINCIPAL')
+        opc = (Helper.readInt('O que deseja fazer: ', 2))
+        if opc == 1:
+            payload = Payload.makePayload()
+            sendMail(f'{url}/sendMail', payload)
+        else:
+            sys.exit()
+    except:
+        print(f'Erro ao executar app')
